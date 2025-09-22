@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head><title>Hydration Tracker</title></head>
-<body>
-    <h1>Welcome to Hydration Tracker</h1>
-</body>
+  <head>
+    <title>User Info</title>
+  </head>
+  <body>
+    <h2>Enter Your Info</h2>
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <p>{{ form.name.label }} {{ form.name() }}</p>
+      <p>{{ form.age.label }} {{ form.age() }}</p>
+      <p>{{ form.gender.label }} {{ form.gender() }}</p>
+      <p>{{ form.height.label }} {{ form.height() }}</p>
+      <p>{{ form.weight.label }} {{ form.weight() }}</p>
+      <p>{{ form.activity_level.label }} {{ form.activity_level() }}</p>
+      <p>{{ form.submit() }}</p>
+    </form>
+  </body>
 </html>
