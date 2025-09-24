@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Hydration Tracker{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --accent: #a7ebf2;
+        --primary: #54acbf;
+        --secondary: #26658c;
+        --dark: #011c40;
+        --deep-dark: #023859;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--accent);
+        color: var(--dark);
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        background-color: var(--primary);
+      }
+
+      .navbar-brand,
+      .nav-link,
+      .navbar-text {
+        color: white !important;
+        font-weight: 600;
+      }
+
+      .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary);
+      }
+
+      footer {
+        background-color: var(--deep-dark);
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/">💧 Hydration Tracker</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/track">Track</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 mb-5">{% block content %}{% endblock %}</div>
+
+    <footer>
+      <p>&copy; 2025 Hydration Tracker • Stay Hydrated 💧</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

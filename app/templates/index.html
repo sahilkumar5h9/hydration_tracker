@@ -13,6 +13,11 @@
       <p>{{ form.height.label }} {{ form.height() }}</p>
       <p>{{ form.weight.label }} {{ form.weight() }}</p>
       <p>{{ form.activity_level.label }} {{ form.activity_level() }}</p>
+      <div class="mb-3">
+        {{ form.avg_steps.label(class="form-label") }} {{
+        form.avg_steps(class="form-control") }}
+      </div>
+
       <p>{{ form.submit() }}</p>
     </form>
   </body>
