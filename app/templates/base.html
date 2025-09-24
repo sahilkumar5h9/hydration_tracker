@@ -37,23 +37,29 @@
         color: var(--dark);
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
       }
 
       .navbar {
-        background-color: var(--primary);
+        background-color: var(--deep-dark);
       }
 
       .navbar-brand,
-      .nav-link,
-      .navbar-text {
-        color: white !important;
+      .nav-link {
+        color: var(--accent) !important;
         font-weight: 600;
+      }
+
+      .nav-link:hover {
+        color: var(--primary) !important;
       }
 
       .card {
         border: none;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
       }
 
       .btn-primary {
@@ -66,36 +72,67 @@
       }
 
       footer {
-        background-color: var(--deep-dark);
-        color: white;
-        padding: 20px 0;
+        background-color: var(--dark);
+        color: var(--accent);
+        padding: 15px 0;
         text-align: center;
-        margin-top: 40px;
+        margin-top: auto;
       }
     </style>
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="/">💧 Hydration Tracker</a>
-        <div class="collapse navbar-collapse">
+        <a class="navbar-brand" href="{{ url_for('main.dashboard') }}">
+          💧 Hydration Tracker
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon" style="filter: invert(90%)"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/dashboard">Dashboard</a>
+              <a class="nav-link" href="{{ url_for('main.dashboard') }}">
+                <i class="fa-solid fa-chart-line me-1"></i> Dashboard
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/track">Track</a>
+              <a class="nav-link" href="{{ url_for('main.track') }}">
+                <i class="fa-solid fa-glass-water-droplet me-1"></i> Track
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
+              <a class="nav-link" href="{{ url_for('main.recommendation') }}">
+                <i class="fa-solid fa-lightbulb me-1"></i> Recommendation
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('main.home') }}">
+                <i class="fa-solid fa-user me-1"></i> Profile
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">
+                <i class="fa-solid fa-right-from-bracket me-1"></i> Logout
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="container mt-5 mb-5">{% block content %}{% endblock %}</div>
+    <!-- Page Content -->
+    <main class="container my-5 flex-grow-1">
+      {% block content %}{% endblock %}
+    </main>
 
+    <!-- Footer -->
     <footer>
       <p>&copy; 2025 Hydration Tracker • Stay Hydrated 💧</p>
     </footer>

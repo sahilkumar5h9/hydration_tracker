@@ -184,3 +184,15 @@ def dashboard():
                            progress=progress,
                            streak=streak,
                            quote=quote)
+
+
+@main.route('/history')
+def history():
+    user = session.get('user')
+    if not user:
+        return redirect(url_for('main.home'))
+
+    # Get hydration logs from session
+    logs = session.get('logs', {})
+
+    return render_template('history.html', user=user, logs=logs)

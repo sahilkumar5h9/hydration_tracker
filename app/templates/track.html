@@ -1,35 +1,40 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Track Water Intake</title>
-    <style>
-      .progress-container {
-          width: 100%;
-          background-color: #ddd;
-      }
-      .progress-bar {
-          width: {{ progress }}%;
-          height: 30px;
-          background-color: #4CAF50;
-          text-align: center;
-          color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Hello, {{ user.name }}!</h2>
-    <p>Daily Goal: {{ goal }} ml</p>
-    <p>You've drunk: {{ intake }} ml</p>
+{% extends "base.html" %} {% block title %}Track Intake - HydraTrack{% endblock
+%} {% block content %}
+<div class="container track-container">
+  <div class="card p-4">
+    <h2 class="text-center mb-3" style="color: #023859">
+      Hello, {{ user.name }}! 👋
+    </h2>
+    <p class="text-center fs-5">
+      <strong>Daily Goal:</strong> {{ goal }} ml <br />
+      <strong>Today's Intake:</strong> {{ intake }} ml
+    </p>
 
-    <div class="progress-container">
-      <div class="progress-bar">{{ progress }}%</div>
+    <!-- Progress Bar -->
+    <div class="progress my-4">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        style="width: {{ progress }}%"
+        aria-valuenow="{{ progress }}"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        {{ progress }}%
+      </div>
     </div>
 
-    <form method="POST">
-      <input type="number" name="water" placeholder="Amount in ml" required />
-      <input type="submit" value="Add Water" />
+    <!-- Form -->
+    <form method="POST" class="d-flex gap-2">
+      <input
+        type="number"
+        name="water"
+        class="form-control"
+        placeholder="Enter water in ml"
+        required
+      />
+      <button type="submit" class="btn btn-primary px-4">Add</button>
     </form>
-
-    <p><a href="/">Go to Home</a></p>
-  </body>
-</html>
+  </div>
+</div>
+{% endblock %}
